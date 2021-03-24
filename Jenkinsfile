@@ -22,11 +22,11 @@ node{
          withCredentials([string(credentialsId: 'dockerpwdkc', variable: 'dockerPWD')]) {
                sh "docker login -u knackc123 -p ${dockerPWD}"
          }
-        //sh "docker push ${dockerImageName}"
+        sh "docker push ${dockerImageName}"
       }
       
     stage('Run Docker Image'){
-            def dockerContainerName = 'javadedockerapp_kc_pipeline:20'
+            def dockerContainerName = 'javadedockerapp_$JOB_NAME_$BUILD_NUMBER'
             def changingPermission='sudo chmod +x /home/ec2-user/stopscript.sh'
             def scriptRunner='sudo /home/ec2-user/stopscript.sh'           
             def dockerRun= "sudo docker run -p 8082:8080 -d --name ${dockerContainerName} ${dockerImageName}" 
