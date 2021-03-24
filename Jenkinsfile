@@ -27,7 +27,7 @@ node{
       
     stage('Run Docker Image'){
             def dockerContainerName = 'javadedockerapp_kc_pipeline:20'
-            def changingPermission='sudo chmod +x stopscript.sh'
+            def changingPermission='sudo chmod +x /home/ec2-user/stopscript.sh'
             def scriptRunner='sudo ./stopscript.sh'           
             def dockerRun= "sudo docker run -p 8082:8080 -d --name ${dockerContainerName} ${dockerImageName}" 
             withCredentials([string(credentialsId: 'deploymentserverpwd', variable: 'dpPWD')]) {
