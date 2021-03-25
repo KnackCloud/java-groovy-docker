@@ -5,7 +5,7 @@
 	</title>
 	
 <body>
-	Hello from Java Docker Application.
+	Hi from Java Docker Application.
 	
 	
 	
