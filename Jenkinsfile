@@ -32,11 +32,11 @@ node{
             def scriptRunner='sudo /home/ec2-user/stopscript.sh'           
             def dockerRun= "sudo docker run -p 8082:8080 -d --name ${dockerContainerName} ${dockerImageName}" 
             withCredentials([string(credentialsId: 'deploymentserverpwd', variable: 'dpPWD')]) {
-                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@34.224.6.66" 
-                  sh "sshpass -p ${dpPWD} scp -r stopscript.sh root@34.224.6.66:/home/ec2-user" 
-                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@34.224.6.66 ${changingPermission}"
-                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@34.224.6.66 ${scriptRunner}"
-                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@34.224.6.66 ${dockerRun}"
+                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@34.207.156.212" 
+                  sh "sshpass -p ${dpPWD} scp -r stopscript.sh root@34.207.156.212:/home/ec2-user" 
+                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@34.207.156.212 ${changingPermission}"
+                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@34.207.156.212 ${scriptRunner}"
+                  sh "sshpass -p ${dpPWD} ssh -o StrictHostKeyChecking=no root@34.207.156.212 ${dockerRun}"
             }
             
       
