@@ -3,7 +3,7 @@ node{
       stage('Performance Test'){
             sh "sudo su"
             sh "cd /home/ec2-user/jmeter/apache-jmeter-5.4.1/bin"
-            sh "sh jmeter.sh -n -t demo1.jmx -l report.jtl"
+            sh "sh /home/ec2-user/jmeter/apache-jmeter-5.4.1/bin/jmeter.sh -n -t demo1.jmx -l report.jtl"
 
       }
       stage('SCM Checkout'){
