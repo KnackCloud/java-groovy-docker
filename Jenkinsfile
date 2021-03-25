@@ -1,11 +1,6 @@
 node{
       def dockerImageName= 'knackc123/javadedockerapp_$JOB_NAME:$BUILD_NUMBER'
-      stage('Performance Test'){
-            sh "sudo su"
-            sh "cd /home/ec2-user/jmeter/apache-jmeter-5.4.1/bin"
-            sh "sh /home/ec2-user/jmeter/apache-jmeter-5.4.1/bin/jmeter.sh -n -t /home/ec2-user/jmeter/apache-jmeter-5.4.1/bin/demo1.jmx -l /home/ec2-user/jmeter/apache-jmeter-5.4.1/bin/report.jtl"
-
-      }
+     
       stage('SCM Checkout'){
          git 'https://github.com/KnackCloud/java-groovy-docker.git'
       }
@@ -45,6 +40,12 @@ node{
             }
             
       
+      }
+       stage('Performance Test'){
+            sh "sudo su"
+            sh "cd /home/ec2-user/jmeter/apache-jmeter-5.4.1/bin"
+            sh "sh /home/ec2-user/jmeter/apache-jmeter-5.4.1/bin/jmeter.sh -n -t /home/ec2-user/jmeter/apache-jmeter-5.4.1/bin/demo1.jmx -l /home/ec2-user/jmeter/apache-jmeter-5.4.1/bin/report.jtl"
+
       }
       
          
